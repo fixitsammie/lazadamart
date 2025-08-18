@@ -8,7 +8,7 @@ export const inngest = new Inngest({
 });
 
 //Inngest Function to save user data to a database
-export const SyncUserCreation = inngest.createFunction(
+export const syncUserCreation = inngest.createFunction(
   {
     id: "sync-user-creation-clerk",
   },
