@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
-
+import { useClerk } from "@clerk/nextjs";
 const Navbar = () => {
   const { isSeller, router, user } = useAppContext();
   const { openSignIn } = useClerk();
@@ -66,7 +66,10 @@ const Navbar = () => {
             </UserButton>
           </>
         ) : (
-          <button className="flex items-center gap-2 hover:text-gray-900 transition">
+          <button
+            className="flex items-center gap-2 hover:text-gray-900 transition"
+            onClick={() => openSignIn()}
+          >
             <Image src={assets.user_icon} alt="user icon" />
             Account
           </button>
@@ -119,7 +122,10 @@ const Navbar = () => {
             </UserButton>
           </>
         ) : (
-          <button className="flex items-center gap-2 hover:text-gray-900 transition">
+          <button
+            className="flex items-center gap-2 hover:text-gray-900 transition"
+            onClick={() => openSignIn()}
+          >
             <Image src={assets.user_icon} alt="user icon" />
             Account
           </button>
