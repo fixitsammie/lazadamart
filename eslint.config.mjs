@@ -1,14 +1,20 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import nextPlugin from "eslint-config-next";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export default [
+  js.configs.recommended,
+  nextPlugin,
+  {
+    rules: {
+      // Optional: warn if styled-jsx is missing in package.json
+      "import/no-extraneous-dependencies": [
+        "error",
+        { devDependencies: ["**/*.test.js", "**/*.config.js"] },
+      ],
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
-
-export default eslintConfig;
+      // React/JSX rules
+      "react/jsx-uses-react": "off", // Next.js with React 17+
+      "react/react-in-jsx-scope": "off", // Next.js handles React import automatically
+    },
+  },
+];
