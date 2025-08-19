@@ -4,19 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build2": "next build",
-    "build":"npm install --force && next build",
+    "build": "next build",
+    "build2": "npm install --force && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "styled-jsx": "^5.1.6",
+    "@clerk/nextjs": "^6.31.1",
+    "inngest": "^3.30.0",
+    "mongoose": "^8.17.1",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hot-toast": "^2.5.1",
-     "@clerk/nextjs": "^6.31.1",
-    "inngest": "^3.40.1",
-    "mongoose": "^8.17.1"
+    "react-hot-toast": "^2.5.1"
+    
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
